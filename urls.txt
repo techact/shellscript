@@ -1,0 +1,6 @@
+https://help.github.com/articles/set-up-git/
+https://help.github.com/articles/create-a-repo/
+https://help.github.com/articles/fork-a-repo/
+https://help.github.com/articles/be-social/
+https://guides.github.com/activities/hello-world/
+https://help.github.com/articles/setting-your-email-in-git/
