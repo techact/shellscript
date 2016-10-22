@@ -7,4 +7,4 @@
 #!/usr/bin/python
 my_input = input("Enter number : ")
 print my_input
-``
+```
