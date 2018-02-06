@@ -1,0 +1,11 @@
+Copying files with recursively and preserving directory structure
+
+cd /path/to/source/directory
+
+All xml files with in this directory
+find . -name '*.xml' | cpio -pdm /path/to/destination/directory
+
+All xml, txt, csv files with in this directory
+find . -type f \( -name "*.xml" -o -name "*.txt" -o -name "*.csv" \)   | cpio -pdm /path/to/destination/directory
+
+(-updm for overwrite destination content.)
