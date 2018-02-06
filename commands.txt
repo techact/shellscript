@@ -11,3 +11,4 @@ find . -type f \( -name "*.xml" -o -name "*.txt" -o -name "*.csv" \)   | cpio -p
 (-updm for overwrite destination content.)
 
 Ref : https://linux.die.net/man/1/cpio
+      https://en.wikipedia.org/wiki/Cpio#Copy
