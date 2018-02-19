@@ -42,3 +42,11 @@ do
 	ans=$(( a + b ))
 	echo $ans
 done
+#checking java is running or not
+count=$(ps aux | grep java | grep -v grep | wc -l)
+echo $count
+while [[ $count -ne 0 ]]
+do
+       echo "Counting $count"
+       count=$(ps aux | grep java | grep -v grep | wc -l)
+done
