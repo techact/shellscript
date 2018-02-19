@@ -50,3 +50,14 @@ do
        echo "Counting $count"
        count=$(ps aux | grep java | grep -v grep | wc -l)
 done
+
+#Checking process (run.sh) until stopped over remote ssh
+ssh -o StrictHostKeyChecking=no -i /path/to/private_key.pem user@hostname 'bash -s' << EOF 2>&1 >> /tmp/results.log
+ps aux | grep run.sh | grep -v grep
+count=\$(ps aux | grep ven.sh| grep -v grep | wc -l)
+echo \$count
+proc_status() {
+    while [[ \$count -ne "\$1" ]]; do count=\$(ps aux | grep run.sh | grep -v grep | wc -l); echo "\$count" ;done
+}
+proc_status "0"
+EOF
