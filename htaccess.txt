@@ -1,0 +1,17 @@
+RewriteEngine On
+# Go to https if not on room.html
+RewriteCond %{SERVER_PORT} 80 
+RewriteCond %{REQUEST_URI} !^/room.html$ [NC]
+RewriteRule ^(.*)$ https://www.mydomain123.com/$1 [R,L]
+
+# Go to http if you are on room.html
+RewriteCond %{SERVER_PORT} !80 
+RewriteCond %{REQUEST_URI} ^/room.html$ [NC]
+RewriteRule ^(.*)$ http://www.mydomain123.com/$1 [R,L]
+
+#Redirecting all http requests to https across aws elb/proxy except /mobile/getAppRequest.php
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{HTTP_HOST} ^test\.mydomain123\.in$ [NC]
+RewriteCond %{REQUEST_URI} !^/mobile/getAppRequest\.php$
+RewriteRule ^(.*) https://www.mydomain123.in/$1 [L,R]
+
