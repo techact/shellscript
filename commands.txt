@@ -25,3 +25,15 @@ SSH - Supported escape sequences:
  ~?   - this message
  ~~   - send the escape character by typing it twice
 
+Top 5 cpu/mem consuming process:
+
+ps aux | sort -nrk 3,3 | head -n 5
+ps --sort=-pcpu | head -n 6
+ps -Ao user,uid,comm,pid,pcpu,tty --sort=-pcpu | head -n 6
+top -b -n 1 | head -n 12  | tail -n 5
+ps aux | sort -nrk 3,3 | head -n 5
+ps -eo pid,comm,%cpu,%mem --sort=-%cpu | head -n 5
+ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head
+ps -eo pmem,pcpu,pid,args | tail -n +2 | sort -rnk 1 | head
+crontab -e
+ps -eo pmem,pcpu,pid,args | tail -n +2 | sort -rnk 1 | head
