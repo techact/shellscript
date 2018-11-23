@@ -1,0 +1,23 @@
+host_notification_options
+
+d = notify on DOWN host states
+u = notify on UNREACHABLE host states
+r = notify on host recoveries (UP states)
+f = notify when the host starts and stops flapping
+s = send notifications when host or service scheduled downtime starts and ends
+n = (none) as an option, the contact will not receive any type of host notifications. 
+
+
+service_notification_options
+
+w = notify on WARNING service states
+u = notify on UNKNOWN service states
+c = notify on CRITICAL service states
+r = notify on service recoveries (OK states)
+f = notify when the service starts and stops flapping
+n = (none) as an option, the contact will not receive any type of service notifications. 
+
+
+command1 || command2 # Run command2 if command1 fails
+
+command1 && command2 # Run command2 if command1 succeeds
