@@ -1,0 +1,6 @@
+How to check if a string contains a substring in Bash
+
+string='My long string'
+if [[ $string == *"My long"* ]]; then
+  echo "It's there!"
+fi
