@@ -1,5 +1,19 @@
 #!/bin/bash
 
+# Output printing in console and writing to log file
+export LOG_FILE=log.txt
+function console_log {
+  echo $1
+  echo $1>>$LOG_FILE
+}
+
+exec 3>&1 1>>${LOG_FILE} 2>&1
+
+echo "This is stdout"
+echo "This is stderr" 1>&2
+echo "This is the console (fd 3)" 1>&3
+echo "This is both the log and the console" | tee /dev/fd/3
+
 #COUNTER=$((COUNTER+1))
 
 echo "Type 1"
